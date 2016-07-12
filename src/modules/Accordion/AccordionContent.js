@@ -1,36 +1,33 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 
-import { META, useKeyOnly } from '../../lib'
+import { Content } from '../../parts'
+import { getUnhandledProps, META, useKeyOnly } from '../../lib'
 
-function AccordionContent({ active, children, className, ...rest }) {
+function AccordionContent(props) {
+  const { active, className, children } = props
   const classes = cx(
-    'content',
     useKeyOnly(active, 'active'),
     className
   )
 
+  const rest = getUnhandledProps(AccordionContent, props)
+
   return (
-    <div {...rest} className={classes}>
+    <Content {...rest} className={classes}>
       {children}
-    </div>
+    </Content>
   )
 }
 
-AccordionContent.displayName = 'AccordionContent'
-
 AccordionContent.propTypes = {
+  ...Content.propTypes,
   /** Whether or not the content is visible. */
   active: PropTypes.bool,
-
-  /** Primary content of the Content. */
-  children: PropTypes.node,
-
-  /** Classes to add to the content className. */
-  className: PropTypes.string,
 }
 
 AccordionContent._meta = {
+  ...Content._meta,
   name: 'AccordionContent',
   type: META.TYPES.MODULE,
   parent: 'Accordion',
