@@ -1,8 +1,27 @@
 import React, { PropTypes } from 'react'
 import cx from 'classnames'
 
-import { Content } from '../../parts'
+import { ContentPart } from '../../parts'
 import { getUnhandledProps, META, useKeyOnly } from '../../lib'
+
+// ========================================================
+// Brainstorming ways to abstract className buildup, etc.
+//
+// const AccordionContent = createContentPart({
+//   cx: ({ active }) => [
+//     useKeyOnly(active, 'active'),
+//   ],
+//   propTypes: {
+//     /** Whether or not the content is visible. */
+//     active: PropTypes.bool,
+//   },
+//   _meta: {
+//     name: 'AccordionContent',
+//     type: META.TYPES.MODULE,
+//     parent: 'Accordion',
+//   },
+// })
+// --------------------------------------------------------
 
 function AccordionContent(props) {
   const { active, className, children } = props
@@ -14,20 +33,20 @@ function AccordionContent(props) {
   const rest = getUnhandledProps(AccordionContent, props)
 
   return (
-    <Content {...rest} className={classes}>
+    <ContentPart {...rest} className={classes}>
       {children}
-    </Content>
+    </ContentPart>
   )
 }
 
 AccordionContent.propTypes = {
-  ...Content.propTypes,
+  ...ContentPart.propTypes,
   /** Whether or not the content is visible. */
   active: PropTypes.bool,
 }
 
 AccordionContent._meta = {
-  ...Content._meta,
+  ...ContentPart._meta,
   name: 'AccordionContent',
   type: META.TYPES.MODULE,
   parent: 'Accordion',
