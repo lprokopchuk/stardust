@@ -2,11 +2,13 @@ import cx from 'classnames'
 import React, { PropTypes } from 'react'
 
 import {
-   customPropTypes,
-   getUnhandledProps,
-   META,
+  customPropTypes,
+  getUnhandledProps,
+  META,
 } from '../../lib'
-import FeedDate from './FeedDate'
+
+import { createDatePart } from '../../parts'
+// import FeedDate from './FeedDate'
 import FeedExtra from './FeedExtra'
 import FeedMeta from './FeedMeta'
 import FeedSummary from './FeedSummary'
@@ -15,10 +17,11 @@ function FeedContent(props) {
   const { children, content, className, extraImages, extraText, date, meta, summary } = props
   const classes = cx(className, 'content')
   const rest = getUnhandledProps(FeedContent, props)
+  const Date = createDatePart({ elementType: 'div' })
 
   return (
     <div {...rest} className={classes}>
-      {date && <FeedDate date={date} />}
+      {date && <Date>{date}</Date>}
       {summary && <FeedSummary summary={summary} />}
       {extraImages && <FeedExtra images={extraImages} />}
       {extraText && <FeedExtra text={extraText} />}
