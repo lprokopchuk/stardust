@@ -8,7 +8,7 @@ import {
   numberToWord,
 } from '../../lib'
 
-export default class FormFields extends Component {
+export default class FormGroup extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -19,7 +19,7 @@ export default class FormFields extends Component {
   }
 
   static _meta = {
-    name: 'FormFields',
+    name: 'FormGroup',
     parent: 'Form',
     type: META.TYPES.COLLECTION,
   }
@@ -39,7 +39,7 @@ export default class FormFields extends Component {
       numberToWord(fieldCount),
       'fields'
     )
-    const props = getUnhandledProps(FormFields, this.props)
+    const props = getUnhandledProps(FormGroup, this.props)
     return (
       <div {...props} className={classes}>
         {this.props.children}

@@ -7,7 +7,7 @@ import {
   META,
 } from '../../lib'
 import FormField from './FormField'
-import FormFields from './FormFields'
+import FormGroup from './FormGroup'
 
 export default class Form extends Component {
   static propTypes = {
@@ -21,7 +21,7 @@ export default class Form extends Component {
   }
 
   static Field = FormField
-  static Fields = FormFields
+  static Group = FormGroup
 
   serializeJson = () => {
     const form = this.refs.element

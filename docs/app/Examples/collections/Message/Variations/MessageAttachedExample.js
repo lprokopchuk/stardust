@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Form, Icon, Message } from 'stardust'
 
-// TODO update Button and Form/Fields usage after they're updated to v1 API
+// TODO update Button usage after they're updated to v1 API
 
 const MessageAttachedExample = () => (
   <div>
@@ -11,14 +11,14 @@ const MessageAttachedExample = () => (
       content='Fill out the form below to sign-up for a new account'
     />
     <Form className='attached fluid segment'>
-      <Form.Fields evenlyDivided>
+      <Form.Group evenlyDivided>
         <Form.Field label='First Nam'>
           <input placeholder='First Name' type='text' />
         </Form.Field>
         <Form.Field label='Last Nam'>
           <input placeholder='Last Name' type='text' />
         </Form.Field>
-      </Form.Fields>
+      </Form.Group>
       <Form.Field label='Username'>
         <input placeholder='Username' type='text' />
       </Form.Field>
