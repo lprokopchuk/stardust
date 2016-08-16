@@ -100,20 +100,19 @@ Once you change the flag, you need to refresh your browser to see the changes in
 
 First, get setup and acquainted with development by reading the [contributing guidelines][1].
 
-### v1.0 Migrations
-
-We're making two migrations right now:
-
-1. [Moving legacy component APIs to our v1 API][15]
-1. [Removing jQuery and SUI JS][11]
-
 Each of these issues includes a list of components and more information on how you can help.
 
-### New Components
+### [v1.0 Migrations][15]
 
-There is an issue for every missing component.  They are all labeled [`enhancement` `help wanted`][17] and we're accepting PRs for these.
+Have a look at the task list on the issue to see where you can jump in.
 
-Be sure to check out the above migrations before embarking on a new component.  All new components should be written in accordance with the migrations above.
+### [Missing Components][17]
+
+There is an issue for every missing component, labeled `enhancement` `help wanted`.  Just comment on the issue you'd like to take.
+
+### [Help Wanted Label][4]
+
+Any other issue labeled `help wanted` is ready for a PR.
 
 ## Our Principles
 
@@ -166,7 +165,7 @@ Made with :heart: [@TechnologyAdvice][9], a ridiculous [place to work][16].
 [1]: https://github.com/TechnologyAdvice/stardust/blob/master/CONTRIBUTING.md
 [2]: https://technologyadvice.github.io/stardust/
 [3]: https://facebook.github.io/react/
-[4]: #
+[4]: https://github.com/TechnologyAdvice/stardust/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted
 [5]: http://semantic-ui.com/
 [6]: https://github.com/TechnologyAdvice/stardust/milestone/1
 [7]: https://github.com/webpack/webpack-dev-server/

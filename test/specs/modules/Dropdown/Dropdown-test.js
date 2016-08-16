@@ -70,12 +70,6 @@ describe('Dropdown Component', () => {
   common.propKeyOnlyToClassName(Dropdown, 'search')
   common.propKeyOnlyToClassName(Dropdown, 'selection')
 
-  it('does not add a hidden input by default', () => {
-    wrapperMount(<Dropdown />)
-      .find('input[type="hidden"]')
-      .should.not.be.present()
-  })
-
   // TODO: see Dropdown.handleBlur() todo
   // it('closes on blur', () => {
   //   wrapperMount(<Dropdown {...requiredProps} />)
@@ -804,14 +798,6 @@ describe('Dropdown Component', () => {
 
       newItem.should.have.prop('text', 'bar')
       newItem.should.have.prop('value', 'bar')
-    })
-  })
-
-  describe('selection', () => {
-    it('adds a hidden input', () => {
-      wrapperRender(<Dropdown options={options} selection />)
-        .find('input[type="hidden"]')
-        .should.be.present()
     })
   })
 

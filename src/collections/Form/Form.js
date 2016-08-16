@@ -1,10 +1,8 @@
 import cx from 'classnames'
-import $ from 'jquery'
 import _ from 'lodash'
 import React, { Component, PropTypes } from 'react'
 
 import {
-  deprecateProps,
   getUnhandledProps,
   META,
 } from '../../lib'
@@ -15,55 +13,6 @@ export default class Form extends Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    settings: PropTypes.shape({
-      on: PropTypes.string,
-      inline: PropTypes.bool,
-      fields: PropTypes.object,
-    }),
-
-    // form settings
-    keyboardShortcuts: PropTypes.bool,
-    on: PropTypes.oneOf([
-      'blur',
-      'change',
-      'submit',
-    ]),
-    revalidate: PropTypes.bool,
-    delay: PropTypes.bool,
-    inline: PropTypes.bool,
-    transition: PropTypes.string,
-    duration: PropTypes.number,
-    // callbacks
-    onValid: PropTypes.func,
-    onInvalid: PropTypes.func,
-    onSuccess: PropTypes.func,
-    onFailure: PropTypes.func,
-    fields: PropTypes.object,
-  }
-
-  static defaultProps = {
-    // prevent submit by default
-    // https://github.com/Semantic-Org/Semantic-UI/issues/546
-    onSuccess: () => false,
-  }
-
-  constructor(props, context) {
-    super(props, context)
-    deprecateProps(this, {
-      settings: 'Use a separate prop for each setting.',
-    })
-  }
-
-  componentDidMount() {
-    this.refresh()
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    this.refresh()
-  }
-
-  componentWillUnmount() {
-    _.invoke(this, 'element.off')
   }
 
   static _meta = {
@@ -73,21 +22,6 @@ export default class Form extends Component {
 
   static Field = FormField
   static Fields = FormFields
-
-  plugin(...args) {
-    return this.element.form(...args)
-  }
-
-  refresh() {
-    this.element = $(this.refs.element)
-    this.element.form(_.pick(this.props, [
-      'keyboardShortcuts',
-      // validation
-      'delay', 'duration', 'fields', 'on', 'inline', 'revalidate', 'transition',
-      // callbacks
-      'onValid', 'onInvalid', 'onSuccess', 'onFailure',
-    ]))
-  }
 
   serializeJson = () => {
     const form = this.refs.element
@@ -126,7 +60,7 @@ export default class Form extends Component {
     )
     const props = getUnhandledProps(Form, this.props)
     return (
-      <form {...props} className={classes} ref='element'>
+      <form {...props} className={classes}>
         {this.props.children}
       </form>
     )

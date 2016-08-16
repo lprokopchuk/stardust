@@ -702,22 +702,6 @@ export default class Dropdown extends Component {
     return <div className={classes}>{_text}</div>
   }
 
-  // TODO hidden input only exists for backwards compatibility with SUI jQuery plugins
-  // remove once those are removed
-  renderHiddenInput = () => {
-    debug('renderHiddenInput()')
-    const { value } = this.state
-    const { multiple, name, selection } = this.props
-    debug(`name:      ${name}`)
-    debug(`selection: ${selection}`)
-    debug(`value:     ${value}`)
-    if (!selection) return null
-
-    const _value = multiple ? (value || []).join(',') : value
-
-    return <input type='hidden' name={name} value={_value} />
-  }
-
   renderSearchInput = () => {
     const { search } = this.props
     const { searchQuery, searchWidth } = this.state
@@ -883,7 +867,6 @@ export default class Dropdown extends Component {
         onClick={this.handleClick}
         className={classes}
       >
-        {this.renderHiddenInput()}
         {this.renderLabels()}
         {this.renderSearchInput()}
         {this.renderSearchSizer()}
