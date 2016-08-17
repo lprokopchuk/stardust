@@ -7,7 +7,7 @@ const MenuExamples = () => {
   return (
     <div>
       <Types />
-      <Content/>
+      <Content />
     </div>
   )
 }

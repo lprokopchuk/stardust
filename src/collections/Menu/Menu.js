@@ -81,10 +81,11 @@ export default class Menu extends Component {
 
     return Children.map(children, (child, i) => {
       const isItem = child.type === MenuItem
+      const isLink = _.has(child, 'props.href') || _.has(child, 'props.link') || _.has(child, 'props.onClick')
 
       if (isItem) {
         const onClick = (e) => {
-          this.handleItemClick(e, i)
+          if (isLink) this.handleItemClick(e, i)
           if (child.props.onClick) child.props.onClick(e, i)
         }
 
