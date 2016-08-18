@@ -1,20 +1,17 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import { META } from '../../lib'
 
-export default class Textarea extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string,
-  }
-
-  static _meta = {
-    name: 'Textarea',
-    type: META.TYPES.ADDON,
-  }
-
-  render() {
-    return (
-      <textarea {...this.props} />
-    )
-  }
+/**
+ * A simple <textarea> wrapper for use in Form.TextArea.
+ * We may add more features to the TextArea in the future.
+ */
+function TextArea(props) {
+  return <textarea {...props} />
 }
+
+TextArea._meta = {
+  name: 'TextArea',
+  type: META.TYPES.ADDON,
+}
+
+export default TextArea

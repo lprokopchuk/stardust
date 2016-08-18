@@ -48,6 +48,7 @@ module.exports = (karmaConfig) => {
           ...webpackConfig.module.loaders,
         ],
       }),
+      plugins: webpackConfig.plugins,
       resolve: Object.assign({}, webpackConfig.resolve, {
         alias: Object.assign({}, webpackConfig.resolve.alias, {
           sinon: 'sinon/pkg/sinon',
